@@ -261,7 +261,7 @@ const CalculatorComponent = ({
                         order to keep scraping your target site. Is your business model still going to be sustainable after
                         such a change? A simple calculation can help you gauge the increase in cost."/>
                     <div className='flex item-center md-row col'>
-                        <CustomText className='question'>7. Calculate new proxy costs:</CustomText>
+                        <CustomText className='question' text="7. Calculate new proxy costs:" />
                         <select name="" id="" value={costType} onChange={(e) => setCostType(e.target.value)}>
                             <option value="">Select proxy type</option>
                             <option value="ResidentialProxy">Residential Proxy</option>

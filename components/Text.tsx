@@ -5,9 +5,9 @@ function CustomText({
     className,
     heading
 }: {
-    text: string;
-    className: string;
-    heading: boolean;
+    text?: string;
+    className?: string;
+    heading?: boolean;
 }) {
     // function truncateString(str: string, maxLength: number) {
     //     if (!str) {
