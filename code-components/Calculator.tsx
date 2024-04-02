@@ -1,4 +1,5 @@
 "use client"
+import CustomText from '../components/Text';
 import React, { lazy, useEffect, useState } from 'react';
 const CustomInput = lazy(() => import('../components/Input'));
 
@@ -54,8 +55,8 @@ const CalculatorComponent = ({
             <form className="calculator-form new-calculator" onSubmit={(e) => e.preventDefault()}>
 
                 <div className='part1'>
-                    <h1 className='section-heading lightBlue'>Part I: Calculating Individual Costs</h1>
-                    <p className='question'>1. What is your monthly computing resource cost?</p>
+                    <CustomText className='section-heading lightBlue' text="Part I: Calculating Individual Costs" />
+                    <CustomText className='question' text="1. What is your monthly computing resource cost?" />
                     <div className="calculate-row">
 
                         <div className="calculator-inputbox pl-4">
@@ -69,7 +70,7 @@ const CalculatorComponent = ({
                     </div>
 
                     <div className="radio-section">
-                        <p>(1a.) Do you use cURL-like requests or browser-based tools for scraping?</p>
+                        <CustomText text="(1a.) Do you use cURL-like requests or browser-based tools for scraping?" />
                         <div className='pl-30px'>
                             <input type="radio" id="curl" name="fav_language" value="curl" onChange={(e) => setScrappingType(e.target.value)} />
                             <label htmlFor="curl">cURL</label><br />
@@ -79,7 +80,7 @@ const CalculatorComponent = ({
                     </div>
 
 
-                    <p className='question'>2. What are your total proxy costs?</p>
+                    <CustomText className='question' text="2. What are your total proxy costs?" />
                     <div className='pl-4'>
                         <div className="calculate-row">
                             <div className='three-fields responsive'>
@@ -143,7 +144,7 @@ const CalculatorComponent = ({
                     </div>
 
                     <div className="radio-section">
-                        <p className='mb-0'>(2a.) How many gigabytes of data do you scrape in a given month?</p>
+                        <CustomText className='mb-0' text="(2a.) How many gigabytes of data do you scrape in a given month?" />
                         <div className='pl-30px'>
                             <div className="calculate-row">
                                 <CustomInput
@@ -155,7 +156,7 @@ const CalculatorComponent = ({
                         </div>
                     </div>
 
-                    <p className='question'>3. What are your monthly development resource costs?</p>
+                    <CustomText className='question' text="3. What are your monthly development resource costs?" />
                     <div className="calculate-row pl-4">
                         <div className="calculator-inputbox">
                             <CustomInput
@@ -166,7 +167,7 @@ const CalculatorComponent = ({
                         </div>
                     </div>
 
-                    <p className='question'>4. How many scrapes do you do per month?</p>
+                    <CustomText className='question' text="4. How many scrapes do you do per month?" />
                     <div className="calculate-row pl-4">
                         <div className="calculator-inputbox">
                             <CustomInput
@@ -179,8 +180,8 @@ const CalculatorComponent = ({
                 </div>
 
                 <div className='part2'>
-                    <h1 className='section-heading pink'>Part II: Calculating Cost-Per-Scrape</h1>
-                    <p className='question'>5. Calculate your total costs in a given month:</p>
+                    <CustomText className='section-heading pink' text="Part II: Calculating Cost-Per-Scrape" />
+                    <CustomText className='question' text="5. Calculate your total costs in a given month:" />
                     <div className="calculate-row pl-4">
                         <div className='four-fields responsive'>
 
@@ -221,7 +222,7 @@ const CalculatorComponent = ({
                             </div>
                         </div>
                     </div>
-                    <p className='question'>6. Calculate your cost-per-scrape using the answers to previous questions:</p>
+                    <CustomText className='question' text="6. Calculate your cost-per-scrape using the answers to previous questions:" />
                     <div className="calculate-row pl-4">
                         <div className='three-fields responsive'>
                             <div className="calculator-inputbox">
@@ -255,12 +256,12 @@ const CalculatorComponent = ({
                 </div>
 
                 <div className='part3'>
-                    <h1 className='section-heading lightBlue'>Part III: Modeling Proxy Cost Increase</h1>
-                    <p className='mb-15px text-white'>Now imagine a scenario where you have to switch from data center proxies to residential proxies in
+                    <CustomText className='section-heading lightBlue' text="Part III: Modeling Proxy Cost Increase" />
+                    <CustomText className='mb-15px text-white' text="Now imagine a scenario where you have to switch from data center proxies to residential proxies in
                         order to keep scraping your target site. Is your business model still going to be sustainable after
-                        such a change? A simple calculation can help you gauge the increase in cost.</p>
+                        such a change? A simple calculation can help you gauge the increase in cost."/>
                     <div className='flex item-center md-row col'>
-                        <p className='question'>7. Calculate new proxy costs:</p>
+                        <CustomText className='question'>7. Calculate new proxy costs:</CustomText>
                         <select name="" id="" value={costType} onChange={(e) => setCostType(e.target.value)}>
                             <option value="">Select proxy type</option>
                             <option value="ResidentialProxy">Residential Proxy</option>
@@ -269,7 +270,8 @@ const CalculatorComponent = ({
                         </select>
                     </div>
                     <div className="calculate-row pl-4">
-                        {costType !== "" && gigaByte !== 0 && !isNaN(gigaByte) ? "" : <p className='errorClass'> Fill the Residential cost per GB in order to calculate the Proxy cost increase</p>}            <div className='three-fields responsive'>
+                        {costType !== "" && gigaByte !== 0 && !isNaN(gigaByte) ? "" : <CustomText className='errorClass' text="Fill the Residential cost per GB in order to calculate the Proxy cost increase" />}
+                        <div className='three-fields responsive'>
                             <div className="calculator-inputbox">
                                 <CustomInput
                                     onChange={setgigaByte}
@@ -298,7 +300,7 @@ const CalculatorComponent = ({
                             </div>
                         </div>
                     </div>
-                    <p className='question'>8. Calculate cost increase:</p>
+                    <CustomText className='question' text="8. Calculate cost increase:" />
                     <div className="calculate-row pl-4">
                         <div className='three-fields responsive'>
                             <div className="calculator-inputbox">
@@ -329,7 +331,7 @@ const CalculatorComponent = ({
                             </div>
                         </div>
                     </div>
-                    <p className='question'>9. Calculate your cost-per-scrape using the answers to previous questions:</p>
+                    <CustomText className='question' text="9. Calculate your cost-per-scrape using the answers to previous questions:" />
                     <div className="calculate-row pl-4">
                         <div className='four-fields responsive'>
                             <div className="calculator-inputbox flex items-center">
@@ -378,11 +380,11 @@ const CalculatorComponent = ({
                 </div>
 
                 <div className='part4'>
-                    <h1 className='section-heading pink'>Part IV: Modeling Computing Cost Increase</h1>
-                    <p className='mb-15px text-white'>Assume you are using cURL-like requests, requiring a tiny amount of computing resources per
+                    <CustomText className='section-heading pink' text="Part IV: Modeling Computing Cost Increase" />
+                    <CustomText className='mb-15px text-white' text="Assume you are using cURL-like requests, requiring a tiny amount of computing resources per
                         scrape. Then, one day, your target site starts blocking you. It seems that it only accepts browserbased scraping now. If that happens, your total cost is going to increase by at least two factors of
-                        magnitude. Let’s model this increase.</p>
-                    <p className='question'>10. Your current computing cost is:</p>
+                        magnitude. Let’s model this increase."/>
+                    <CustomText className='question' text="10. Your current computing cost is:" />
                     <div className="calculate-row pl-4">
                         <div className="calculator-inputbox">
                             <input
@@ -392,7 +394,7 @@ const CalculatorComponent = ({
                             <label>Answer to question 1</label>
                         </div>
                     </div>
-                    <p className='question'>11. Estimate the new computing cost cost:</p>
+                    <CustomText className='question' text="11. Estimate the new computing cost cost:" />
                     <div className="calculate-row pl-4">
                         <div className='new-two-fields responsive'>
                             <div className="calculator-inputbox">
@@ -414,7 +416,7 @@ const CalculatorComponent = ({
                             </div>
                         </div>
                     </div>
-                    <p className='question'>12. Calculate cost increase:</p>
+                    <CustomText className='question' text="12. Calculate cost increase:" />
                     <div className="calculate-row pl-4">
                         <div className='three-fields responsive'>
                             <div className="calculator-inputbox">
@@ -445,7 +447,7 @@ const CalculatorComponent = ({
                             </div>
                         </div>
                     </div>
-                    <p className='question'>13. Calculate your cost-per-scrape using the answers to previous questions:</p>
+                    <CustomText className='question' text="13. Calculate your cost-per-scrape using the answers to previous questions:" />
                     <div className="calculate-row pl-4">
                         <div className='four-fields responsive'>
                             <div className="calculator-inputbox flex items-center">
